@@ -136,7 +136,7 @@ const Navbar = () => {
                         to="/"
                         className="btn btn-ghost normal-case md:text-xl font-bold text-[#FFD700]"
                     >
-                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Imtiaz Tourism Ltd
+                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Wonder Bangladesh
                     </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import logo from '../../assets/icon/travel-bag.png'
+import logo from '../../assets/travel-logo.png'
 import { useNavigate } from 'react-router-dom';
 const Footer = () => {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         //  <img src={logo} alt="" />
         <footer className="footer footer-center bg-black text-white rounded p-10">
-            <h1 className='text-3xl font-extrabold'>Wonder Bangladesh</h1>
+            <h1 className='text-3xl font-extrabold'><img src={logo} alt="" className="w-24 h-auto" />Wonder Bangladesh</h1>
             <nav className="grid grid-flow-col gap-4">
                 <a className="link link-hover" onClick={aboutUs}>About us</a>
                 <a className="link link-hover" onClick={() => setIsModalOpen(true)}>Privacy Polcy</a>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </div>
             </nav>
             <aside>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by Imtiaz Toursim Ltd</p>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by Wonder Bangladesh</p>
             </aside>
 
 
