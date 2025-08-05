@@ -1,16 +1,32 @@
 
-
-
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/authProvider";
-import logo from '../../assets/travel-logo.png';
+import logo from '../../assets/LOGO/travel-logo.png';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [userRole, setUserRole] = useState(null);
+    const [isRoleFetched, setIsRoleFetched] = useState(false);
 
+    // Fetch user role from backend
+    useEffect(() => {
+        if (user) {
+            fetch(`https://imtiaztourismltdd.vercel.app/users/role?email=${user.email}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("User Role:", data.role);
+                    setUserRole(data.role);
+                    setIsRoleFetched(true);
+                })
+                .catch((error) => {
+                    console.error("Error fetching user role:", error);
+                    setIsRoleFetched(true);
+                });
+        }
+    }, [user]);
 
     // Reset dashboard reload flag on component mount
     useEffect(() => {
@@ -28,10 +44,10 @@ const Navbar = () => {
         }
     };
 
-    // Toggle user dropdown
+    // Toggle user dropdown menu
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-    // Links
+    // Navigation Links
     const links = (
         <>
             <li>
@@ -68,7 +84,7 @@ const Navbar = () => {
                 <>
                     <li className="mx-1">
                         <NavLink
-                            to="/alltripspages"
+                            to="/alltirpspages"
                             className={({ isActive }) =>
                                 `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
                             }
@@ -91,6 +107,21 @@ const Navbar = () => {
         </>
     );
 
+    const dashboardLink = () => {
+        switch (userRole) {
+            case "Tour guide":
+                return "/dashboard/tourguide";
+            case "Admin":
+                return "/dashboard/admin";
+            case "Tourist":
+                return "/dashboard/tourist";
+            default:
+                return "/dashboard/tourist";
+        }
+    };
+
+
+
 
 
     return (
@@ -102,7 +133,7 @@ const Navbar = () => {
                     </span>
                 </div>
             )}
-            <div className="navbar bg-teal-500">
+            <div className="navbar bg-[#008080]">
 
 
                 <div className="navbar-start">
@@ -136,7 +167,7 @@ const Navbar = () => {
                         to="/"
                         className="btn btn-ghost normal-case md:text-xl font-bold text-[#FFD700]"
                     >
-                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Wonder Bangladesh
+                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Imtiaz Tourism Ltd
                     </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -158,6 +189,18 @@ const Navbar = () => {
                                         <p>{user.email}</p>
                                     </div>
                                     <hr />
+                                    <NavLink
+                                        to={dashboardLink()}
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        onClick={(e) => {
+                                            if (userRole === undefined) {
+                                                e.preventDefault();
+                                                window.location.reload(); // Reload if userRole is undefined
+                                            }
+                                        }}
+                                    >
+                                        Dashboard
+                                    </NavLink>
 
                                     <button
                                         onClick={handleLogout}
