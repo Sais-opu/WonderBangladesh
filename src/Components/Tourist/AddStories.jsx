@@ -65,7 +65,7 @@ const AddStories = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto ml-5 mt-8 p-6 bg-[#008080]  rounded-lg shadow-lg">
+        <div className="max-w-4xl mx-auto ml-5 mt-8 p-6 bg-teal-600  rounded-lg shadow-lg">
             <ToastContainer />
             <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">Add Your Story</h2>
             <form onSubmit={handleSubmit} className="space-y-6">

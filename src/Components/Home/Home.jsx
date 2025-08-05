@@ -3,6 +3,9 @@ import MyCarousel from './MyCarousel';
 import OfficeMap from './OfficeMap';
 import OverviewSection from './OverviewSection';
 import TouristStorySection from './touristStorySection';
+import TopDestination from './TopDestination';
+import TravelTips from './TravelTips';
+import TravelBlog from './TravelBlog';
 
 
 const Home = () => {
@@ -17,6 +20,15 @@ const Home = () => {
             </div>
             <div>
                 <TouristStorySection></TouristStorySection>
+            </div>
+            <div>
+                <TopDestination></TopDestination>
+            </div>
+            <div>
+                <TravelBlog></TravelBlog>
+            </div>
+            <div>
+                <TravelTips></TravelTips>
             </div>
         </div>
     );

@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const TouristStorySection = ({ isLoggedIn }) => {
     const [stories, setStories] = useState([]);
     const navigate = useNavigate();
-
-    // Fetch random stories from the backend
     useEffect(() => {
         const fetchStories = async () => {
             try {
@@ -25,7 +23,7 @@ const TouristStorySection = ({ isLoggedIn }) => {
         fetchStories();
     }, []);
 
-    // Handle share button click
+    //  share button click
     const handleShare = (storyId) => {
         if (!isLoggedIn) {
             navigate('/login');
@@ -68,11 +66,11 @@ const TouristStorySection = ({ isLoggedIn }) => {
 
                         <div className="mt-4 flex items-center justify-between">
                             <FacebookShareButton
-                                url={`https://your-site.com/story/${story._id}`} // ✅ Replace with your real frontend base URL
+                                url={`https://your-site.com/story/${story._id}`} 
                                 quote={story.title}
                                 onClick={() => handleShare(story._id)}
                             >
-                                <button className="bg-[#FFA500] text-white px-4 py-2 rounded hover:bg-[#FFA500]/80">
+                                <button className="bg-blue-400  px-4 py-2 rounded hover:bg-[#FFA500]/80">
                                     Share on Facebook
                                 </button>
                             </FacebookShareButton>

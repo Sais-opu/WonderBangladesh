@@ -4,7 +4,7 @@ const OverviewSection = () => {
     return (
         <section className="overview-section py-16">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center text-[#FFD700] mb-8">
+                <h2 className="text-4xl font-bold text-center text-blue-500 mb-8">
                     Welcome to The Tourist Guide - Explore Bangladesh
                 </h2>
                 <p className="text-xl text-center  mb-8">
@@ -18,7 +18,7 @@ const OverviewSection = () => {
                         Dive into the beauty of Bangladesh with detailed travel guides, tips, and videos that bring you closer to the heart of the country.
                     </p>
                     <button
-                        className="mt-4 px-8 py-3 bg-[#FFA500] text-[#3F0113] rounded-lg text-xl font-semibold transition-all duration-300 hover:bg-[#3F0113] hover:text-[#FFA500]"
+                        className="mt-4 px-8 py-3 bg-sky-500 text-white rounded-lg text-xl font-semibold transition-all duration-300 hover:bg-orange-400 "
                     >
                         Explore Now
                     </button>

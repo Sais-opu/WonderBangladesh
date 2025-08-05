@@ -14,7 +14,7 @@ const Navbar = () => {
     // Fetch user role from backend
     useEffect(() => {
         if (user) {
-            fetch(`https://imtiaztourismltdd.vercel.app/users/role?email=${user.email}`)
+            fetch(`http://localhost:5000/users/role?email=${user.email}`)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("User Role:", data.role);
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <NavLink
                     to="/"
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? "bg-[#FFA500] " : "bg-transparent text-black"}`
                     }
                 >
                     Home
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <NavLink
                     to="/community"
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] " : "bg-transparent text-black"}`
                     }
                 >
                     Community
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <NavLink
                     to="/aboutus"
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] " : "bg-transparent text-black"}`
                     }
                 >
                     About Us
@@ -86,7 +86,7 @@ const Navbar = () => {
                         <NavLink
                             to="/alltirpspages"
                             className={({ isActive }) =>
-                                `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                                `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] " : "bg-transparent text-black"}`
                             }
                         >
                             All Trips
@@ -96,7 +96,7 @@ const Navbar = () => {
                         <NavLink
                             to="/alltourguides"
                             className={({ isActive }) =>
-                                `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                                `px-4 py-2 rounded ${isActive ? " bg-[#FFA500]" : "bg-transparent text-black"}`
                             }
                         >
                             Our Tour Guides
@@ -127,13 +127,13 @@ const Navbar = () => {
     return (
         <div className=" sticky top-0 z-50">
             {user && user.displayName && (
-                <div className="bg-[#008080]/90 text-center py-2">
+                <div className="bg-sky-300 text-center py-2">
                     <span className="text-sm font-medium text-[#333533]">
                         Welcome, {user.displayName}!
                     </span>
                 </div>
             )}
-            <div className="navbar bg-[#008080]">
+            <div className="navbar bg-sky-600">
 
 
                 <div className="navbar-start">
@@ -165,9 +165,9 @@ const Navbar = () => {
 
                     <NavLink
                         to="/"
-                        className="btn btn-ghost normal-case md:text-xl font-bold text-[#FFD700]"
+                        className="btn btn-ghost normal-case md:text-xl font-bold text-white"
                     >
-                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Imtiaz Tourism Ltd
+                        <img src={logo} alt="" className="w-6 h-6 mr-2" /> Wonder Bangladesh
                     </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -195,7 +195,8 @@ const Navbar = () => {
                                         onClick={(e) => {
                                             if (userRole === undefined) {
                                                 e.preventDefault();
-                                                window.location.reload(); // Reload if userRole is undefined
+                                                // Reload if userRole is undefined
+                                                window.location.reload(); 
                                             }
                                         }}
                                     >

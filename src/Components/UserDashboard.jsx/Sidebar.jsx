@@ -31,10 +31,8 @@ const SideBar = () => {
     if (!userRole) {
         return <p>Loading...</p>;
     }
-
-    // Only show sidebar for Tourists
     if (userRole !== 'Tourist') {
-        return null; // No sidebar for Admins, Guides, etc.
+        return null; 
     }
 
     const sidebarStyle = {
