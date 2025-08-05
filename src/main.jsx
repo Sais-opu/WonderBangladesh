@@ -12,15 +12,20 @@ import Register from './Components/Register/Register'
 import AllTripsPage from './Components/AllTripsPage/AllTripsPage'
 import AuthProvider from './Components/Provider/authProvider'
 import AllTourGuide from './Components/AllTourGuide/AllTourGuide'
+import Layout2 from './Components/Layout2'
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
+import AddStories from './Components/Tourist/AddStories'
+import TouristDashboard from './Components/UserDashboard.jsx/TouristDashboard'
+
 
 
 
 const router = createBrowserRouter([
   {
-    path: '/', 
-    element: <Root />, 
+    path: '/',
+    element: <Root />,
     errorElement: <Error />,
-    children: [ 
+    children: [
       {
         path: '/',
         element: <Home />
@@ -42,12 +47,31 @@ const router = createBrowserRouter([
         element: <Register />
       },
       {
-        path: '/alltripspages', 
+        path: '/alltripspages',
         element: <AllTripsPage />
       },
       {
         path: "/alltourguides",
         element: <AllTourGuide></AllTourGuide>
+      },
+    ]
+  },
+  {
+    path: '/',
+    element: <Layout2></Layout2>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/dashboard/tourist",
+        element: <ProtectedRoute allowedRoles={['Tourist']}><TouristDashboard></TouristDashboard></ProtectedRoute>
+      },
+      {
+        path: '/addstories',
+        element: (
+          <ProtectedRoute allowedRoles={['Tourist']}>
+            <AddStories />
+          </ProtectedRoute>
+        )
       },
     ]
   }
