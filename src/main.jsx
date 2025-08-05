@@ -11,6 +11,7 @@ import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import AllTripsPage from './Components/AllTripsPage/AllTripsPage'
 import AuthProvider from './Components/Provider/authProvider'
+import AllTourGuide from './Components/AllTourGuide/AllTourGuide'
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/alltripspages', 
         element: <AllTripsPage />
+      },
+      {
+        path: "/alltourguides",
+        element: <AllTourGuide></AllTourGuide>
       },
     ]
   }
