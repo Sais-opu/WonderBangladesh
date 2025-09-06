@@ -29,7 +29,7 @@ const Register = () => {
                 };
 
                 // Send user data to the backend
-                const serverResponse = await fetch("http://localhost:5000/register", {
+                const serverResponse = await fetch("https://imtiaztourismltdd.vercel.app/register", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -125,7 +125,7 @@ const Register = () => {
             };
 
             // Send user data to the backend
-            const serverResponse = await fetch("http://localhost:5000/register", {
+            const serverResponse = await fetch("https://imtiaztourismltdd.vercel.app/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,86 +1,168 @@
-import { Children, StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Root from './Components/Root'
-import Error from './Components/Error'
 import Home from './Components/Home/Home'
-import Community from './Components/Community/Community'
-import About from './Components/About/About'
-import Login from './Components/Login/Login'
-import Register from './Components/Register/Register'
-import AllTripsPage from './Components/AllTripsPage/AllTripsPage'
+import Root from './Components/Root'
 import AuthProvider from './Components/Provider/authProvider'
-import AllTourGuide from './Components/AllTourGuide/AllTourGuide'
-import Layout2 from './Components/Layout2'
+import Register from './Components/Register/Register'
+import ErrorPage from './Components/ErrorPage'
+import Login from './Components/Login/Login'
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
-import AddStories from './Components/Tourist/AddStories'
 import TouristDashboard from './Components/UserDashboard.jsx/TouristDashboard'
+import PackageDetails from './Components/PackageDetails/PackageDetails'
+import AllTripsPage from './Components/AllTripsPage/AllTripsPage'
+import Community from './Components/Community/Community'
+import AboutUsPage from './Components/AboutUsPage/AboutUsPage'
+import TourGuideDashboard from './Components/UserDashboard.jsx/TourGuideDashboard'
+import AdminDashboard from './Components/UserDashboard.jsx/AdminDashboard'
+import Layout2 from './Components/Layout2'
+import TouristManageProfile from './Components/Tourist/TouristManageProfile'
+import JoinAsTourGuide from './Components/Tourist/JoinAsTourGuide'
+import MyBooking from './Components/Tourist/MyBooking'
+import Payment from './Components/Tourist/Payment'
+// import { Elements } from '@stripe/react-stripe-js'
+// import { loadStripe } from '@stripe/stripe-js'
+import AddStories from './Components/Tourist/AddStories'
+import ManageStories from './Components/Tourist/ManageStories'
+import StoryEdit from './Components/Tourist/StoryEdit'
+import GuideProfile from './Components/TourGuide/GuideProfile'
+import AddPackage from './Components/Admin/AddPackage'
+import ManageUsers from './Components/Admin/ManageUsers'
+import ManageCandidate from './Components/Admin/ManageCandidate'
+import MyAssignedTours from './Components/Tour Guide/MyAssignedTours'
+import StoriesTG from './Components/Tour Guide/StoriesTG'
+import AllTourGuide from './Components/AllTourGuide/AllTourGuide'
+import Overstate from './Components/Overstate/Overstate'
 
-
-
+// const stripePromise = loadStripe('pk_test_51QjKgaAwC1fImaEQKbRyeHqq3iw3ufeIP1FU4awqUbJeavujVfjrOmIsnFtx5Rb98KteM18htlYTO4caZztCMqkA00G1ifOgo6');
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
-    errorElement: <Error />,
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: '/', element: <Home></Home>
       },
       {
-        path: '/community',
-        element: <Community />
+        path: 'register',
+        element: <Register></Register>
       },
       {
-        path: '/aboutus',
-        element: <About />
+        path: 'state',
+        element: <Overstate></Overstate>
       },
       {
-        path: '/login',
-        element: <Login />
+        path: 'login',
+        element: <Login></Login>
       },
       {
-        path: '/register',
-        element: <Register />
+        path: "/packages/:id",
+        element: <PackageDetails></PackageDetails>
       },
       {
-        path: '/alltripspages',
-        element: <AllTripsPage />
+        path: '/tourguides/:id',
+        element: <GuideProfile></GuideProfile>
+      },
+      {
+        path: '/alltirpspages',
+        element: <AllTripsPage></AllTripsPage>
       },
       {
         path: "/alltourguides",
         element: <AllTourGuide></AllTourGuide>
       },
+      {
+        path: '/community',
+        element: <Community></Community>
+      },
+      {
+        path: '/aboutus',
+        element: <AboutUsPage></AboutUsPage>
+      }
     ]
   },
   {
     path: '/',
     element: <Layout2></Layout2>,
-    errorElement: <Error></Error>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/dashboard/tourist",
         element: <ProtectedRoute allowedRoles={['Tourist']}><TouristDashboard></TouristDashboard></ProtectedRoute>
       },
       {
-        path: '/addstories',
-        element: (
-          <ProtectedRoute allowedRoles={['Tourist']}>
-            <AddStories />
-          </ProtectedRoute>
-        )
+        path: '/dashboard/tourist/manageProfile',
+        element: <TouristManageProfile></TouristManageProfile>
       },
+      {
+        path: '/dashboard/tourist/joinguide',
+        element: <JoinAsTourGuide></JoinAsTourGuide>
+      },
+      {
+
+        path: "/payment/:id",
+        element: <Payment></Payment>
+
+      },
+      {
+        path: '/dashboard/tourist/myBookings',
+        element: <MyBooking></MyBooking>
+      },
+      {
+        path: '/addstories',
+        element: <AddStories></AddStories>
+      },
+      {
+        path: '/manage-stories',
+        element: <ManageStories></ManageStories>
+      },
+      {
+        path: '/edit-story/:id',
+        element: <StoryEdit></StoryEdit>
+      },
+      {
+        path: "dashboard/tourguide",
+        element: <ProtectedRoute allowedRoles={['Tour Guide']}><TourGuideDashboard></TourGuideDashboard></ProtectedRoute>
+      },
+      {
+        path: "dashboard/tourguide/assignedtour",
+        element: <MyAssignedTours></MyAssignedTours>
+      },
+      {
+        path: 'dashboard/tourguide/stories',
+        element: <StoriesTG></StoriesTG>
+      },
+      {
+        path: "dashboard/admin",
+        element: <ProtectedRoute allowedRoles={['Admin']}><AdminDashboard></AdminDashboard></ProtectedRoute>
+      },
+      {
+        path: 'dashboard/admin/addpackage',
+        element: <AddPackage></AddPackage>
+      },
+      {
+        path: 'dashboard/admin/manageusers',
+        element: <ManageUsers></ManageUsers>
+      },
+      {
+        path: 'dashboard/admin/managecandidate',
+        element: <ManageCandidate></ManageCandidate>
+      }
     ]
+
+
   }
-]);
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router}></RouterProvider>
+      {/* <Elements stripe={stripePromise}> */}
+        <RouterProvider router={router}></RouterProvider>
+      {/* </Elements> */}
     </AuthProvider>
   </StrictMode>,
 )
