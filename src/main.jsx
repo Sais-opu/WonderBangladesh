@@ -21,8 +21,8 @@ import TouristManageProfile from './Components/Tourist/TouristManageProfile'
 import JoinAsTourGuide from './Components/Tourist/JoinAsTourGuide'
 import MyBooking from './Components/Tourist/MyBooking'
 import Payment from './Components/Tourist/Payment'
-// import { Elements } from '@stripe/react-stripe-js'
-// import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 import AddStories from './Components/Tourist/AddStories'
 import ManageStories from './Components/Tourist/ManageStories'
 import StoryEdit from './Components/Tourist/StoryEdit'
@@ -35,7 +35,8 @@ import StoriesTG from './Components/Tour Guide/StoriesTG'
 import AllTourGuide from './Components/AllTourGuide/AllTourGuide'
 import Overstate from './Components/Overstate/Overstate'
 
-// const stripePromise = loadStripe('pk_test_51QjKgaAwC1fImaEQKbRyeHqq3iw3ufeIP1FU4awqUbJeavujVfjrOmIsnFtx5Rb98KteM18htlYTO4caZztCMqkA00G1ifOgo6');
+
+const stripePromise = loadStripe('pk_test_51S5XAYFbTPg0is0X5kQkPb0RvEVNZuKdfBRlXqehaVfpf25mbJ2Uhs0PwXtw7lrAdCw9JGTKKrFjDAsjJUYAIS8200CnXWPAnl');
 
 const router = createBrowserRouter([
   {
