@@ -14,7 +14,7 @@
 //         const fetchUserData = async () => {
 //             if (user?.email) {
 //                 try {
-//                     const response = await fetch(`https://imtiaztourismltdd.vercel.app/users?email=${user.email}`);
+//                     const response = await fetch(`http://localhost:5000/users?email=${user.email}`);
 //                     if (!response.ok) {
 //                         throw new Error('Failed to fetch user data');
 //                     }
@@ -215,7 +215,7 @@ const TouristManageProfile = () => {
         const fetchUserData = async () => {
             if (user?.email) {
                 try {
-                    const response = await fetch(`https://imtiaztourismltdd.vercel.app/users?email=${user.email}`);
+                    const response = await fetch(`http://localhost:5000/users?email=${user.email}`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch user data');
                     }

@@ -42,7 +42,7 @@
 //         const newPackage = { ...packageData, packageId };
 
 //         try {
-//             const response = await fetch('https://imtiaztourismltdd.vercel.app/ourpackages', {
+//             const response = await fetch('http://localhost:5000/ourpackages', {
 //                 method: 'POST',
 //                 headers: {
 //                     'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ const AddPackage = () => {
         const newPackage = { ...packageData, packageId };
 
         try {
-            const response = await fetch('https://imtiaztourismltdd.vercel.app/ourpackages', {
+            const response = await fetch('http://localhost:5000/ourpackages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

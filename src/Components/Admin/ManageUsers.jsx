@@ -17,8 +17,8 @@
 //         const fetchData = async () => {
 //             try {
 //                 const [usersResponse, tourGuidesResponse] = await Promise.all([
-//                     axios.get('https://imtiaztourismltdd.vercel.app/users/all'),
-//                     axios.get('https://imtiaztourismltdd.vercel.app/tourguides/all'),
+//                     axios.get('http://localhost:5000/users/all'),
+//                     axios.get('http://localhost:5000/tourguides/all'),
 //                 ]);
 
 //                 console.log('Users data:', usersResponse.data);
@@ -170,8 +170,8 @@ const ManageUsers = () => {
         const fetchData = async () => {
             try {
                 const [usersResponse, tourGuidesResponse] = await Promise.all([
-                    axios.get('https://imtiaztourismltdd.vercel.app/users/all'),
-                    axios.get('https://imtiaztourismltdd.vercel.app/tourguides/all'),
+                    axios.get('http://localhost:5000/users/all'),
+                    axios.get('http://localhost:5000/tourguides/all'),
                 ]);
 
                 const combined = [

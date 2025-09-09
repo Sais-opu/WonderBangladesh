@@ -7,7 +7,7 @@ const AllTourGuide = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("https://imtiaztourismltdd.vercel.app/tourguides/all")
+        fetch("http://localhost:5000/tourguides/all")
             .then((res) => res.json())
             .then((data) => setTourGuides(data))
             .catch((error) => console.error("Error fetching tour guides:", error));

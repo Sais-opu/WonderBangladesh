@@ -9,14 +9,14 @@ const TourismAndTravelGuide = () => {
     const [guides, setGuides] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://imtiaztourismltdd.vercel.app/ourpackages')
+        fetch('http://localhost:5000/ourpackages')
             .then((res) => res.json())
             .then((data) => setPackages(data))
             .catch((error) => console.error("Error fetching packages:", error));
     }, []);
 
     useEffect(() => {
-        fetch(`https://imtiaztourismltdd.vercel.app/tourguides`)
+        fetch(`http://localhost:5000/tourguides`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data); // Log data to verify response

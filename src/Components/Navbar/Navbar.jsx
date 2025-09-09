@@ -12,7 +12,7 @@ const Navbar = () => {
     // Fetch user role from backend
     useEffect(() => {
         if (user) {
-            fetch(`https://imtiaztourismltdd.vercel.app/users/role?email=${user.email}`)
+            fetch(`http://localhost:5000/users/role?email=${user.email}`)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("User Role:", data.role);

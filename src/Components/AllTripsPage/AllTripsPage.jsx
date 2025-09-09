@@ -8,7 +8,7 @@ const AllTripsPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://imtiaztourismltdd.vercel.app/ourpackages/allpackages')
+        fetch('http://localhost:5000/ourpackages/allpackages')
             .then((res) => res.json())
             .then((data) => {
                 setPackages(data);

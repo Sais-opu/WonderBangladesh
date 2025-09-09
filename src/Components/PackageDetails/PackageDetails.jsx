@@ -18,13 +18,13 @@ const PackageDetails = () => {
 
     useEffect(() => {
         console.log("User:", user);
-        fetch(`https://imtiaztourismltdd.vercel.app/ourpackages/${id}`)
+        fetch(`http://localhost:5000/ourpackages/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched package details:", data);
                 setPackageDetails(data);
             })
-        fetch("https://imtiaztourismltdd.vercel.app/tourguides/all")
+        fetch("http://localhost:5000/tourguides/all")
             .then((res) => res.json())
             .then((data) => setTourGuides(data))
             .catch((error) => console.error("Error fetching tour guides:", error));
@@ -50,7 +50,7 @@ const PackageDetails = () => {
 
         console.log("Booking data to send:", bookingData);
 
-        fetch("https://imtiaztourismltdd.vercel.app/bookings", {
+        fetch("http://localhost:5000/bookings", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
